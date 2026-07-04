@@ -1,20 +1,20 @@
 import { useDrop } from "react-dnd"
 
-interface DragItem {
-    title: string,
-    id: number, 
-    description: string
-}
+// interface DragItem {
+//     title: string,
+//     id: number, 
+//     description: string
+// }
 
-interface CardColProps {
-    onDrop: (item: DragItem) => void
-    children: React.ReactNode
-}
+// interface CardColProps {
+//     onDrop: (item: DragItem) => void
+//     children: React.ReactNode
+// }
 
-export function CardColumn({children, onDrop}: CardColProps) {
-    const [drop] = useDrop(() => ({
+export function CardColumn(props) {
+    const [{isOver, canDrop} , drop] = useDrop(() => ({
         accept: ["card"],
-        drop: (item) => onDrop(item),
+        drop: props.onDrop,
         collect: (monitor) => ({
             isOver: monitor.isOver(),
             canDrop: monitor.canDrop()
@@ -22,6 +22,6 @@ export function CardColumn({children, onDrop}: CardColProps) {
     }))
 
     return <div ref={drop} style={{height: "100vh", borderRight: "2px dotted black", flex:1}}>
-        {children}
+        {props.children}
     </div>
 }

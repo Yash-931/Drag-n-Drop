@@ -29,9 +29,10 @@ export function Boards() {
     <div style={{ display: "flex" }}>
       <CardColumn
         onDrop={(item) => {
-          setOnGoing((prev) => prev.filter((todo) => todo.id !== item.id));
-          setCompleted((prev) => prev.filter((todo) => todo.id !== item.id));
-          setNotStarted(prev => [item, ...prev]);
+          setOnGoing((prev) => prev.filter((todo) => todo.id !== item.id))
+          setCompleted((prev) => prev.filter((todo) => todo.id !== item.id))
+          setNotStarted((prev) => prev.filter( (todo) => todo.id !== item.id))
+          setNotStarted(prev => [...prev, item]);
         }}
       >
         {notStarted.map((todo) => (
@@ -46,9 +47,10 @@ export function Boards() {
 
       <CardColumn
         onDrop={(item) => {
-          setNotStarted((prev) => prev.filter((todo) => todo.id !== item.id));
-          setCompleted((prev) => prev.filter((todo) => todo.id !== item.id));
-          setOnGoing(prev => [item, ...prev]);
+          setOnGoing((prev) => prev.filter((todo) => todo.id !== item.id))
+          setCompleted((prev) => prev.filter((todo) => todo.id !== item.id))
+          setNotStarted((prev) => prev.filter( (todo) => todo.id !== item.id))
+          setOnGoing(prev => [...prev, item]);
         }}
       >
         {onGoing.map((todo) => (
@@ -63,9 +65,10 @@ export function Boards() {
 
       <CardColumn
         onDrop={(item) => {
-          setOnGoing((prev) => prev.filter((todo) => todo.id !== item.id));
-          setNotStarted((prev) => prev.filter((todo) => todo.id !== item.id));
-          setCompleted(prev => [item, ...prev]);
+          setOnGoing((prev) => prev.filter((todo) => todo.id !== item.id))
+          setCompleted((prev) => prev.filter((todo) => todo.id !== item.id))
+          setNotStarted((prev) => prev.filter( (todo) => todo.id !== item.id))
+          setCompleted(prev => [...prev, item]);
         }}
       >
         {completed.map((todo) => (
