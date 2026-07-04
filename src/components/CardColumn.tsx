@@ -1,17 +1,17 @@
 import { useDrop } from "react-dnd"
 
-// interface DragItem {
-//     title: string,
-//     id: number, 
-//     description: string
-// }
+interface DragItem {
+    title: string,
+    id: number, 
+    description: string
+}
 
-// interface CardColProps {
-//     onDrop: (item: DragItem) => void
-//     children: React.ReactNode
-// }
+interface CardColProps {
+    onDrop: (item: DragItem) => void
+    children: React.ReactNode
+}
 
-export function CardColumn(props) {
+export function CardColumn(props: CardColProps) {
     const [{isOver, canDrop} , drop] = useDrop(() => ({
         accept: ["card"],
         drop: props.onDrop,
